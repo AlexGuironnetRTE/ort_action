@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create list of GitHub urls to perform check on
         run: |
-          echo 'https://github.com/tortellini-tools/action' > urls.txt
-          echo 'https://github.com/fair-software/howfairis' >> urls.txt
+          echo 'https://github.com/opfab/operatorfabric-core' > urls.txt
+          echo 'https://github.com/opfab/letscoordinate' >> urls.txt
       - uses: ./
         with:
           repositories: urls.txt
