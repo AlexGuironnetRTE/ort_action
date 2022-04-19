@@ -15,7 +15,7 @@ export async function analyze(
     }
     const docker_args: string[] = volume2dockerargs(volumes)
 
-    const ort_args = ['analyze', '-i', '/in', '-o', '/out']
+    const ort_args = ['analyze', '-i', '/in', '-o', '/out', '-f', 'JSON']
     await run_docker_container(docker_args, ort_args)
 }
 
@@ -37,7 +37,7 @@ export async function evaluate(
         '--license-classifications-file',
         '/config/license-classifications.yml',
         '-i',
-        '/out/analyzer-result.yml',
+        '/out/analyzer-result.json',
         '-o',
         '/out'
     ]
@@ -54,7 +54,7 @@ export async function report(output_dir: string): Promise<void> {
         '-f',
         'GitLabLicenseModel,WebApp',
         '-i',
-        '/out/evaluation-result.yml',
+        '/out/evaluation-result.json',
         '-o',
         '/out'
     ]
