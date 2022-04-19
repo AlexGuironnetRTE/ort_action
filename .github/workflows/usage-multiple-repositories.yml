@@ -9,6 +9,7 @@ jobs:
   tortellini:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Create list of GitHub urls to perform check on
         run: |
           echo 'https://github.com/tortellini-tools/action' > urls.txt
