@@ -1,10 +1,6 @@
 name: usage on multiple repositories
 
 on: # run any PRs and main branch changes
-  push:
-    branches:
-      - main
-      - 'releases/*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,7 +13,7 @@ jobs:
         run: |
           echo 'https://github.com/tortellini-tools/action' > urls.txt
           echo 'https://github.com/fair-software/howfairis' >> urls.txt
-      - uses: tortellini-tools/action@v3
+      - uses: ./
         with:
           repositories: urls.txt
       - uses: actions/upload-artifact@v2
